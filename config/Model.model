@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
-<ns3:modelConfig xsi:type="ns3:ModelConfig" folder="" pauseCalculations="false" entityCode="650" loadPath="check25" entityName="check25" version="41" name="check25" lastUpdated="2024-11-01T10:42:56.782+02:00" lastUpdatedBy="admin" id="admin:MODEL:check25" xmlns:ns6="http://www.modelshop.com/services/account/types" xmlns:ns5="http://www.modelshop.com/datacore/message/types" xmlns:ns8="http://www.modelshop.com/datacore/generator/types" xmlns:ns7="http://www.modelshop.com/datacore/repository/types" xmlns:ns2="http://www.modelshop.com/datacore/view/types" xmlns:ns4="http://www.modelshop.com/services/model/types" xmlns:ns3="http://www.modelshop.com/model/model/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <views allColumns="true" default="true" modelView="true" entityName="check25" name="check25" description="Default view for list check25" id="check25"/>
+<ns3:modelConfig xsi:type="ns3:ModelConfig" folder="" pauseCalculations="false" entityCode="650" loadPath="pushingModel" entityName="pushingModel" version="56" name="pushingModel" lastUpdated="2024-11-01T10:50:59.830+02:00" lastUpdatedBy="admin" id="admin:MODEL:pushingModel" xmlns:ns6="http://www.modelshop.com/services/account/types" xmlns:ns5="http://www.modelshop.com/datacore/message/types" xmlns:ns8="http://www.modelshop.com/datacore/generator/types" xmlns:ns7="http://www.modelshop.com/datacore/repository/types" xmlns:ns2="http://www.modelshop.com/datacore/view/types" xmlns:ns4="http://www.modelshop.com/services/model/types" xmlns:ns3="http://www.modelshop.com/model/model/types" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <datalists entityCode="3" entityName="Sheet2" version="55" name="Sheet2" created="2024-11-01T10:50:59.827+02:00" createdBy="admin" lastUpdated="2024-11-01T10:50:59.827+02:00" lastUpdatedBy="admin" id="Sheet2">
+        <dataFields type="text" fieldCode="100" rawType="java.lang.String" allowNull="true" name="Value" initialized="true" id="Value"/>
+        <dataFields type="text" fieldCode="101" rawType="java.lang.String" allowNull="true" name="Sector" initialized="true" id="Sector"/>
+        <dataFields type="text" fieldCode="102" readOnly="true" rawType="java.lang.String" name="sourceName" description="Source name" initialized="true" id="sourceName">
+            <defaultValue source="'Manual Entry'"/>
+        </dataFields>
+        <dataFields type="integer" fieldCode="103" readOnly="true" rawType="java.lang.Long" name="lineNumber" description="Source line number" initialized="true" id="lineNumber">
+            <defaultValue source="id"/>
+        </dataFields>
+    </datalists>
+    <datalists entityCode="4" entityName="Strategy" version="55" name="Strategy" created="2024-11-01T10:50:59.829+02:00" createdBy="admin" lastUpdated="2024-11-01T10:50:59.829+02:00" lastUpdatedBy="admin" id="Strategy">
+        <dataFields type="text" fieldCode="100" rawType="java.lang.String" allowNull="true" name="Name" initialized="true" id="Name"/>
+        <dataFields type="text" fieldCode="101" rawType="java.lang.String" allowNull="true" name="Sector" initialized="true" id="Sector"/>
+        <dataFields type="text" fieldCode="102" readOnly="true" rawType="java.lang.String" name="sourceName" description="Source name" initialized="true" id="sourceName">
+            <defaultValue source="'Manual Entry'"/>
+        </dataFields>
+        <dataFields type="integer" fieldCode="103" readOnly="true" rawType="java.lang.Long" name="lineNumber" description="Source line number" initialized="true" id="lineNumber">
+            <defaultValue source="id"/>
+        </dataFields>
+    </datalists>
+    <views allColumns="true" default="true" modelView="true" entityName="pushingModel" name="pushingModel" description="Default view for list check25" id="pushingModel"/>
+    <views allColumns="true" default="true" entityName="Sheet2" name="Sheet2" description="Default view for list Sheet2" id="Sheet2"/>
+    <views allColumns="true" default="true" entityName="Strategy" name="Strategy" description="Default view for list Strategy" id="Strategy"/>
+    <connectors layoutDetected="true" entityName="Sheet2" version="55" name="Sheet2" created="2024-11-01T10:50:59.829+02:00" createdBy="admin" lastUpdated="2024-11-01T10:50:59.829+02:00" lastUpdatedBy="admin" id="Sheet2">
+        <connectorFields columnIndex="0" ignore="false" mapField="Value" type="text" rawType="String" allowNull="true" name="Value" id="Value"/>
+        <connectorFields columnIndex="1" ignore="false" mapField="Sector" type="text" rawType="String" allowNull="true" name="Sector" id="Sector"/>
+        <connectorFields mapField="sourceName" type="text" readOnly="true" rawType="String" name="sourceName" description="Source name" id="sourceName"/>
+        <connectorFields mapField="lineNumber" type="integer" readOnly="true" rawType="Long" name="lineNumber" description="Source line number" id="lineNumber"/>
+        <dataSource connectorUrl="test.xlsx">
+            <fileSource>
+                <dataSourceRefs>test.xlsx</dataSourceRefs>
+            </fileSource>
+            <loadFilter/>
+        </dataSource>
+        <mediaConfig connectorMediaType="excel">
+            <excelMedia>
+                <component componentType="excelworksheet" componentId="rId2" componentName="Sheet2" displayName="Sheet2"/>
+            </excelMedia>
+        </mediaConfig>
+    </connectors>
+    <connectors layoutDetected="true" entityName="Strategy" version="55" name="Strategy" created="2024-11-01T10:50:59.830+02:00" createdBy="admin" lastUpdated="2024-11-01T10:50:59.830+02:00" lastUpdatedBy="admin" id="Strategy">
+        <connectorFields columnIndex="0" ignore="false" mapField="Name" type="text" rawType="String" allowNull="true" name="Name" id="Name"/>
+        <connectorFields columnIndex="1" ignore="false" mapField="Sector" type="text" rawType="String" allowNull="true" name="Sector" id="Sector"/>
+        <connectorFields mapField="sourceName" type="text" readOnly="true" rawType="String" name="sourceName" description="Source name" id="sourceName"/>
+        <connectorFields mapField="lineNumber" type="integer" readOnly="true" rawType="Long" name="lineNumber" description="Source line number" id="lineNumber"/>
+        <dataSource connectorUrl="test.xlsx">
+            <fileSource>
+                <dataSourceRefs>test.xlsx</dataSourceRefs>
+            </fileSource>
+            <loadFilter/>
+        </dataSource>
+        <mediaConfig connectorMediaType="excel">
+            <excelMedia>
+                <component componentType="excelworksheet" componentId="rId3" componentName="Strategy" displayName="Strategy"/>
+            </excelMedia>
+        </mediaConfig>
+    </connectors>
     <extra name="ModelCanvasCoordinates" description="Coordinates for ModelCanvasCoordinates" id="ModelCanvasCoordinates">
-        <body>{"DATALIST:Datalist1":{"x":0,"y":0},"DATALIST:Datalist2":{"x":-484,"y":-20}}</body>
+        <body>{"DATALIST:Datalist1":{"x":0,"y":0},"DATALIST:Datalist2":{"x":-484,"y":-20},"CONNECTOR:Strategy":{"x":-521,"y":239},"DATALIST:Sheet2":{"x":-21,"y":-104},"DATALIST:Strategy":{"x":-465,"y":157},"CONNECTOR:Sheet2":{"x":-118,"y":-128}}</body>
     </extra>
 </ns3:modelConfig>
